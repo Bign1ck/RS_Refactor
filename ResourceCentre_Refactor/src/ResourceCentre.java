@@ -60,9 +60,7 @@ public class ResourceCentre {
 			} else if (option == OPTION_LOAN) {
 				// Loan item
 				ResourceCentre.setHeader("LOAN");			
-				ResourceCentre.setHeader("ITEM TYPES");
-				System.out.println("1. Camcorder");
-				System.out.println("2. Chromebook");
+				itemTypeMenu();
 				
 				int itemType = Helper.readInt("Enter option to select item type > ");
 
@@ -79,9 +77,7 @@ public class ResourceCentre {
 			} else if (option == OPTION_RETURN) {
 				// Return item
 				ResourceCentre.setHeader("RETURN");				
-				ResourceCentre.setHeader("ITEM TYPES");
-				System.out.println("1. Camcorder");
-				System.out.println("2. Chromebook");
+				itemTypeMenu();
 				
 				int itemType = Helper.readInt("Enter option to select item type > ");
 				if (itemType == ITEM_TYPE_CAMCORDER) {
@@ -102,6 +98,12 @@ public class ResourceCentre {
 
 		}
 
+	}
+
+	private static void itemTypeMenu() {
+		ResourceCentre.setHeader("ITEM TYPES");
+		System.out.println("1. Camcorder");
+		System.out.println("2. Chromebook");
 	}
 
 	public static void menu() {
@@ -133,18 +135,18 @@ public class ResourceCentre {
 	}
 
 	//================================= Option 1 View (CRUD - Read) =================================
-	 public static String retrieveAllCamcorder(ArrayList<Camcorder> camcorderList) {
-        StringBuilder output = new StringBuilder();
-        String format = "%-10s %-30s %-10s %-10s %-20d\n";
-		
-        for (Camcorder camcorder : camcorderList) {
-            output.append(String.format(format, camcorder.getAssetTag(),
-                    camcorder.getDescription(),
-                    showAvailability(camcorder.getIsAvailable()),
-                    camcorder.getDueDate(), camcorder.getOpticalZoom()));
-        }
-        return output.toString();
-    }
+	public static String retrieveAllCamcorder(ArrayList<Camcorder> camcorderList) {
+		String output = "";
+
+		for (int i = 0; i < camcorderList.size(); i++) {
+
+			output += String.format("%-10s %-30s %-10s %-10s %-20d\n", camcorderList.get(i).getAssetTag(),
+					camcorderList.get(i).getDescription(), 
+					ResourceCentre.showAvailability(camcorderList.get(i).getIsAvailable()),
+					camcorderList.get(i).getDueDate(),camcorderList.get(i).getOpticalZoom());
+		}
+		return output;
+	}
 	
 	public static void viewAllCamcorder(ArrayList<Camcorder> camcorderList) {
 		ResourceCentre.setHeader("CAMCORDER LIST");
@@ -360,4 +362,5 @@ public class ResourceCentre {
 			System.out.println("Chromebook " + tag + " returned");
 		}
 	}
+
 }
