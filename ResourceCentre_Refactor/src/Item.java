@@ -12,17 +12,6 @@ public class Item {
 	}
 
 	public String toString() {
-<<<<<<< Updated upstream
-		String avail = showAvailability(isAvailable);
-		String itemInfo = String.format("%-10s %-30s %-10s %-10s",
-				assetTag,
-				description,
-				avail,
-				dueDate);
-		return itemInfo;
-	}
-
-=======
 		
 		// Write your codes here
 		String.format("%-10s %-30s %-10s %-10s",
