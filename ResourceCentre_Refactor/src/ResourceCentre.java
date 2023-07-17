@@ -139,12 +139,7 @@ public class ResourceCentre {
 
 		for (int i = 0; i < camcorderList.size(); i++) {
 
-			String description = camcorderList.get(i).getDescription();
-			assetTag = camcorderList.get(i).getAssetTag();
-			String showAvailability = ResourceCentre.showAvailability(camcorderList.get(i).getIsAvailable());
-			String dueDate = camcorderList.get(i).getDueDate();
-			int opticalZoom = camcorderList.get(i).getOpticalZoom();
-			output += String.format("%-10s %-30s %-10s %-10s %-20d\n", assetTag,description, showAvailability,dueDate,opticalZoom);
+			output += String.format("%-84s \n", camcorderList.get(i).toString()); //Changed
 		}
 		return output;
 	}
