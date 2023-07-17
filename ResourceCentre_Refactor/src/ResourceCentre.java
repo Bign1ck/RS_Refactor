@@ -336,25 +336,23 @@ public class ResourceCentre {
 		}
 	}
 	
-	public static boolean doReturnChromebook(ArrayList<Chromebook> chromebookList,String tag) {
+	public static boolean doReturnChromebook(ArrayList<Chromebook> chromebookList, String tag) {
 		boolean isReturned = false;
 
 		if (tag.isEmpty())
 			return false;
-		
-		for (int i = 0; i < chromebookList.size(); i++) {
 
-			boolean equalsIgnoreCase = tag.equalsIgnoreCase(chromebookList.get(i).getAssetTag());
-			boolean isAvailable = chromebookList.get(i).getIsAvailable();
-			if (equalsIgnoreCase && isAvailable == false) {
-				chromebookList.get(i).setIsAvailable(true);
-				chromebookList.get(i).setDueDate("");
+		for (Chromebook cb : chromebookList) {
+			boolean CheckAssetTag = tag.equalsIgnoreCase(cb.getAssetTag()); 
+			boolean isAvailable = cb.getIsAvailable();
+
+			if(!(CheckAssetTag && isAvailable)){
+				cb.setIsAvailable(true);
+				cb.setDueDate("");
 				isReturned = true;
-				
 			}
 		}
 		return isReturned;
-		
 	}
 	
 	public static void returnChromebook(ArrayList<Chromebook> chromebookList) {
