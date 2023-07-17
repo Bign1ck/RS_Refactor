@@ -12,7 +12,6 @@ public class Item {
 	}
 
 	public String toString() {
-<<<<<<< Updated upstream
 		String avail = showAvailability(isAvailable);
 		String itemInfo = String.format("%-10s %-30s %-10s %-10s",
 				assetTag,
@@ -21,20 +20,8 @@ public class Item {
 				dueDate);
 		return itemInfo;
 	}
+		
 
-=======
-		
-		// Write your codes here
-		String.format("%-10s %-30s %-10s %-10s",
-				assetTag,
-				description,
-				showAvailability(isAvailable),
-				dueDate);
-		
-		return null;
-	}
-	
->>>>>>> Stashed changes
 	public String showAvailability(boolean isAvailable) {
 		String avail;
 
@@ -45,11 +32,7 @@ public class Item {
 		}
 		return avail;
 	}
-<<<<<<< Updated upstream
 
-=======
-	
->>>>>>> Stashed changes
 	public String getAssetTag() {
 		return assetTag;
 	}
