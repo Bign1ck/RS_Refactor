@@ -107,7 +107,7 @@ public class ResourceCentreTest {
 
 	@Test
 
-	public void testRetrieveAllChromebook() {
+	public void testRetrieveAllChromeebook() {
 
 		// fail("Not yet implemented");
 
