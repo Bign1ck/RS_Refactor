@@ -138,6 +138,18 @@ public class ResourceCentre {
 		}
 		return output;
 	}
+	 public static String retrieveAllCamcorder(ArrayList<Camcorder> camcorderList) {
+        StringBuilder output = new StringBuilder();
+        String format = "%-10s %-30s %-10s %-10s %-20d\n";
+		
+        for (Camcorder camcorder : camcorderList) {
+            output.append(String.format(format, camcorder.getAssetTag(),
+                    camcorder.getDescription(),
+                    showAvailability(camcorder.getIsAvailable()),
+                    camcorder.getDueDate(), camcorder.getOpticalZoom()));
+        }
+        return output.toString();
+    }
 	
 	public static void viewAllCamcorder(ArrayList<Camcorder> camcorderList) {
 		ResourceCentre.setHeader("CAMCORDER LIST");
