@@ -10,6 +10,7 @@ public class ResourceCentre {
 	private static final int OPTION_ADD = 2;
 	private static final int OPTION_VIEW = 1;
 	private static final int OPTION_QUIT = 5;
+	private static String assetTag;
 	public static void main(String[] args) {
 
 		ArrayList<Camcorder> camcorderList = new ArrayList<Camcorder>();
@@ -36,8 +37,7 @@ public class ResourceCentre {
 				// Add a new item
 				ResourceCentre.setHeader("ADD");			
 				ResourceCentre.setHeader("ITEM TYPES");
-				System.out.println("1. Camcorder");
-				System.out.println("2. Chromebook");
+				System.out.println("1. Camcorder");  
 				
 				int itemType = Helper.readInt("Enter option to select item type > ");
 
@@ -140,10 +140,12 @@ public class ResourceCentre {
 
 		for (int i = 0; i < camcorderList.size(); i++) {
 
-			output += String.format("%-10s %-30s %-10s %-10s %-20d\n", camcorderList.get(i).getAssetTag(),
-					camcorderList.get(i).getDescription(), 
-					ResourceCentre.showAvailability(camcorderList.get(i).getIsAvailable()),
-					camcorderList.get(i).getDueDate(),camcorderList.get(i).getOpticalZoom());
+			String description = camcorderList.get(i).getDescription();
+			assetTag = camcorderList.get(i).getAssetTag();
+			String showAvailability = ResourceCentre.showAvailability(camcorderList.get(i).getIsAvailable());
+			String dueDate = camcorderList.get(i).getDueDate();
+			int opticalZoom = camcorderList.get(i).getOpticalZoom();
+			output += String.format("%-10s %-30s %-10s %-10s %-20d\n", assetTag,description, showAvailability,dueDate,opticalZoom);
 		}
 		return output;
 	}
