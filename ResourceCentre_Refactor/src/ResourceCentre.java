@@ -264,18 +264,16 @@ public class ResourceCentre {
 
 		if (tag.isEmpty() || dueDate.isEmpty())
 			return false;
-		
-		for (int i = 0; i < chromebookList.size(); i++) {
 
-			boolean equalsIgnoreCase = tag.equalsIgnoreCase(chromebookList.get(i).getAssetTag());
-			boolean isAvailable = chromebookList.get(i).getIsAvailable();
-			if (equalsIgnoreCase && isAvailable == true) {
+		for (Chromebook cb : chromebookList) {
+			boolean CheckAssetTag = tag.equalsIgnoreCase(cb.getAssetTag()); 
+			boolean isAvailable = cb.getIsAvailable();
+			boolean LoanSuccessful = (CheckAssetTag == true) && (isAvailable == true);
 			
-				chromebookList.get(i).setIsAvailable(false);
-				chromebookList.get(i).setDueDate(dueDate);
-				
+			if(LoanSuccessful){
+				cb.setIsAvailable(false);
+				cb.setDueDate(dueDate);
 				isLoaned = true;
-				
 			}
 		}
 		return isLoaned;
