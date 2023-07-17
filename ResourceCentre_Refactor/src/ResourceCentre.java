@@ -345,8 +345,9 @@ public class ResourceCentre {
 		for (Chromebook cb : chromebookList) {
 			boolean CheckAssetTag = tag.equalsIgnoreCase(cb.getAssetTag()); 
 			boolean isAvailable = cb.getIsAvailable();
-
-			if(!(CheckAssetTag && isAvailable)){
+			boolean ReturnSuccessful = CheckAssetTag && isAvailable == false;
+			
+			if(ReturnSuccessful){
 				cb.setIsAvailable(true);
 				cb.setDueDate("");
 				isReturned = true;
