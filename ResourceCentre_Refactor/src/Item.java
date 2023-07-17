@@ -34,7 +34,6 @@ public class Item {
 		return null;
 	}
 	
->>>>>>> Stashed changes
 	public String showAvailability(boolean isAvailable) {
 		String avail;
 
@@ -45,11 +44,7 @@ public class Item {
 		}
 		return avail;
 	}
-<<<<<<< Updated upstream
-
-=======
 	
->>>>>>> Stashed changes
 	public String getAssetTag() {
 		return assetTag;
 	}
@@ -57,11 +52,7 @@ public class Item {
 	public String getDescription() {
 		return description;
 	}
-
-	public String getDueDate() {
-		return dueDate;
-	}
-
+	
 	public void setDueDate(String dueDate) {
 		this.dueDate = dueDate;
 	}
